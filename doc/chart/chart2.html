@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<script src="chart/data2.js"></script>
+<script src="map/theme.js"></script>
+<script type="text/javascript">
+$(function () {
+    $('#server-statistics-chart2').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Popular Back-end Applications'
+        },
+        subtitle: {
+            text: 'March 2014'
+        },
+        exporting : {
+		    enabled : false
+	    },
+        xAxis: {
+            categories:['PHP','ASP.NET','PERL','PYTHON','MOD_SSL','MOD_BWLIMITED','MOD_AUTH_PASSTHROUGH','OPENSSL','FRONTPAGE','CLOUDFLARE','W3 TOTAL CACHE','PHUSION PASSENGER'],
+            title: {
+                text: null
+            }
+        },
+                yAxis: {
+            title: {
+                text: ""
+            }
+        },
+        tooltip: {
+            valueSuffix: ''
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Number of websites',
+            data: [67155005,33698327,1748725,998156,15214421,10446412,6699122,15825535,7582731,5211226,2343301,1598109]
+        }]
+    });
+});
+</script>
+
+
+<script type="text/css">
+.loading {
+	margin-top: 10em;
+	text-align: center;
+	color: gray;
+}
+.chart-div {
+    margin: 0 auto;
+    min-width: 500px;
+    max-width: 500px;
+}
+</script>
+
+</head>
+
+<body>
+<div  class="chart-div" id="server-statistics-chart2"></div>
+<center>
+Besides the HTTP servers, other related back-end web applications and languages
+ used by more than 1 millions web domains are extracted from the dataset.
+</center>
+
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Helvetica Neue', arial, sans-serif;
+}
+.header {
+	position: fixed;
+	width: 100%;
+	background: #222;
+	z-index: 10;
+}
+.header .navbar-brand {
+	font-weight: 900;
+}
+.header .navbar {
+	margin: 0;
+	border: none;
+}
+.page-section {
+	width: 100%;
+	min-height: 800px;
+	padding: 50px 0;
+	border-bottom: 10px solid #fff;
+}
+.page-section h1 {
+	font-size: 4em;
+	margin: 50px 0;
+}
+.page-section h1 span {
+	font-weight: 200;
+}
+.page-section h2 {
+	font-size: 3em;
+	font-weight: 900;
+	color: #fff;
+	margin: 0 0 30px;
+	text-shadow: 2px 2px 2px #000;
+}
+.page-section p {
+	font-size: 1.2em;
+	font-weight: 200;
+	margin: 0 25% 20px 0;
+}
+.page-section p.lead {
+	font-size: 1.8em;
+}
+.page-section p.caption {
+	color: #fff;
+	padding: 20px;
+	background: url(../images/trans_black_25.png);
+	text-shadow: 1px 1px 1px #000;
+}
+.page-section.intro {
+	min-height: 600px;
+}
+.page-section#introduction {
+	background: url(../images/south-america.jpg) top center no-repeat;
+}
+.page-section#setup {
+	background: url(../images/antarctica.jpg) top center no-repeat;
+}
+.page-section#platform {
+	background: url(../images/north-america.jpg) top center no-repeat;
+}
+.page-section#platform2 {
+    background: url(../images/north-america.jpg) top center no-repeat;
+}
+.page-section#extractdata {
+    background: url(../images/europe.jpg) top center no-repeat;
+}
+.page-section#statistics {
+	background: url(../images/asia.jpg) top center no-repeat;
+}
+.page-section#map {
+	background: url(../images/australia.jpg) top center no-repeat;
+}
+.page-section#discussion {
+	background: url(../images/africa.jpg) top center no-repeat;
+}
+.btn {
+	font-weight: 200;
+}
+.btn-dark {
+	background: #444;
+	color: #fff;
+}
+.btn-dark:hover {
+	background: #000;
+	color: #fff;
+}
+.back-to-top {
+	display: inline-block;
+	clear: both;
+	background: #fff;
+	color: #333;
+	padding: 0 10px 5px;
+	margin: 20px 0 0;
+	text-shadow: none;
+}
+.back-to-top:hover {
+	background: #333;
+	color: #fff;
+	text-decoration: none;
+}
+hr {border-color: #ddd;}
+
+@media (min-width: 768px) {
+	.header .navbar-brand {
+		padding-left: 0;
+	}
+	.navbar-nav {
+		float: right;
+	}
+}
+@media (max-width: 480px) {
+	.page-section h1 {
+		font-size: 3em;
+	}
+	.page-section h2 {
+		font-size: 2em;
+	}
+	.page-section p {
+		font-size: 1em;
+		margin: 0 0 20px;
+	}
+}
+.page-section p.caption {
+	color: #fff;
+	padding: 20px;
+	background: url(../images/trans_black_50.png);
+	text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+}
+.page-section div.caption {
+	color: #fff;
+	padding: 20px;
+	background: url(../images/trans_black_50.png);
+	text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    align-items: center;
+}
+ul > li {
+    margin-left: 10px;
+}
+
+
+img {
+    background-color: rgb(255,255,255);
+} 

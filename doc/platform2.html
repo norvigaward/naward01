@@ -1,0 +1,24 @@
+<div id="platform2" class="page-section">
+    <div class="container">
+
+        <h2>Environmental set up [2/2]</h2>
+        <div class="caption">
+            <h3>Job submission environment [2/2]
+            </h3>
+
+            To be able to submit to the SURFsara Hadoop cluster we have to export the environment variable HADOOP_CONF_DIR which points to the hadoop configuration in the hathi-client.<br/>
+            The final configuration used to set-up Spark “spark-defaults.conf”:<br/>
+            spark.serializer        org.apache.spark.serializer.KryoSerializer<br/>
+            spark.reducer.maxMbInFlight	100<br/>
+            spark.kryoserializer.buffer.mb	100<br/>
+            spark.akka.frameSize 200<br/>
+            spark.storage.memoryFraction 0<br/>
+            <br/><br/>
+            spark.serializer - The standard Java serializer is extremely slow, Kryo is a much faster serializer<br/>
+            spark.reducer.maxMbInFlight - increased due to fails<br/>
+            spark.kyroserializer.buffer.mb - increased due to fails<br/>
+            spark.akka.frameSize - increase due to communication fails<br/>
+            spark.storage.memoryFraction - set from 0.6 to 0, all memory is now used for processing data and none is reserved for caching.<br/>
+        </div>
+    </div>
+</div>

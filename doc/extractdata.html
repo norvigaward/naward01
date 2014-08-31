@@ -1,0 +1,17 @@
+<div id="extractdata" class="page-section">
+    <div class="container">
+
+        <h2>Extracting data from the MAIN dataset
+        </h2>
+        <div class="caption">
+            In this section, the way in which we extract the data will be elaborated.
+        </div>
+<br/>
+        <div class="caption">
+            <h3>Transforming the MAIN dataset
+            </h3>
+            The idea is to eventually construct a timeline, such that we will be able to gauge the relative vulnerability of the public world wide web. We limit ourselves to examining the following HTTP response headers: <b>Server, X-Powered-By, X-AspNet-Version, X-Runtime, X-Version</b>.
+            To do this, we only need the WARC records. For each WARC record, we check whether it is a response by looking at the <b>header.warcTypeIdx</b> field, and only get the domains which have a valid <b>header.warcTargetUriUri</b>. The aforementioned headers are then parsed into a headerKey -> headerValue map for each WARC record, the host of the <b>warcTargetUriUri</b> is extracted and we have a timestamp from the <b>header.warcDate</b>. Thus for each WARC record we have the following object <b>{host, {date, headerKey -> headerValue map}}</b>. The hosts are then grouped, such that we obtain per host: <b>{host, list of {timestamp, headerKey -> headerValue maps}}</b>. Subsequently this is serialized to HDFS for reuse.  By using this extracted dataset, we save a lot of time decompressing, because the main dataset is gzip compressed.
+        </div>
+    </div>
+</div>

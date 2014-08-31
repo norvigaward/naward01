@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<script src="chart/data1.js"></script>
+<script src="map/theme.js"></script>
+<script type="text/javascript">
+$(function () {
+
+       var browserData = [],
+        versionsData = [],
+        i,
+        j,
+        dataLen = data.length,
+        drillDataLen,
+        brightness;
+
+    // Build the data arrays
+    for (i = 0; i < dataLen; i += 1) {
+
+        // add browser data
+        browserData.push({
+            name: categories[i],
+            y: data[i].y,
+            color: data[i].color
+        });
+
+        // add version data
+        drillDataLen = data[i].drilldown.data.length;
+        for (j = 0; j < drillDataLen; j += 1) {
+            brightness = 0.2 - (j / drillDataLen) / 5;
+            versionsData.push({
+                name: data[i].drilldown.categories[j],
+                y: data[i].drilldown.data[j],
+                color: Highcharts.Color(data[i].color).brighten(brightness).get()
+            });
+        }
+    }
+
+    // Create the chart
+    $('#server-statistics-chart').highcharts({
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: 'Market Share of HTTP Server, March 2014'
+        },
+        yAxis: {
+            title: {
+                text: 'Total percent market share'
+            }
+        },
+        plotOptions: {
+            pie: {
+                shadow: false,
+                center: ['50%', '50%']
+            }
+        },
+        tooltip: {
+ 		pointFormat: '{point.percentage:.1f}%'
+        },
+	exporting : {
+		enabled : false
+	},
+        series: [{
+            name: 'Server',
+            data: browserData,
+            size: '60%',
+            dataLabels: {
+                formatter: function () {
+                    return this.y > 12498253 ? this.point.name : null;
+                },
+                color: 'white',
+                distance: -30
+            }
+        }, {
+            name: 'Version',
+            data: versionsData,
+            size: '80%',
+            innerSize: '60%',
+            dataLabels: {
+                formatter: function () {
+                    // display only if larger than 1
+                    return this.y > 4999301 ? '<b>' + this.point.name + ':</b> ' + Highcharts.numberFormat(this.point.percentage, 1) + '%'  : null;
+                }
+            }
+        }]
+    });
+});
+</script>
+
+
+<script type="text/css">
+.loading {
+	margin-top: 10em;
+	text-align: center;
+	color: gray;
+}
+.chart-div {
+    margin: 0 auto;
+    min-width: 500px;
+    max-width: 500px;
+}
+</script>
+
+</head>
+
+<body>
+<div  class="chart-div" id="server-statistics-chart"></div>
+<center>
+From 249,965,073 extracted web domains, the top 3 most popular servers, namely Apache(47.2%), Nginx(15.3%) and IIS(14.3%) had more than 75% of the market share.
+8.2% of the web domains didn't return their server information. Sometimes the web domains also provided version information. 
+</center>
+
+</body>
+</html>
