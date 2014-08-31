@@ -8,5 +8,5 @@ Go to the SPARK directory and type the following command
 
 To view the report:
 
-Web Version: doc/index.html or http://54.191.111.32/
-PDF Version : ReportPDF/report.pdf
+  - Web Version: doc/index.html or http://54.191.111.32/
+  - PDF Version : ReportPDF/report.pdf
