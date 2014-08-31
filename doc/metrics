@@ -1,0 +1,26 @@
+Statistic
+total number of web domain
+//total number of web pages
+//distribution of the number of webpages per domain 
+
+a list of server type
+number of domain per server type
+
+number of domains per country
+number of domains / population per country
+
+
+Correlation
+//for each domain, the number of webpage and the server type.
+check if the alexis top 100 sites are using secure server.
+
+
+
+
+Security
+procentage of insecure domain
+procentage of inseucre domain per country
+the security score sum(severity * websites)/website per server type
+
+Time-line
+procentage of insecure domain over-time

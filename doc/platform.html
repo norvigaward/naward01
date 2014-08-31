@@ -1,0 +1,45 @@
+<div id="platform" class="page-section">
+   <div class="container">
+
+      <h2>Environmental set up [1/2]</h2>
+       <div class="caption">
+           The SURFsara Hadoop cluster consists of 90 compute nodes each with 8 cores and 64GB RAM. It uses Kerberos for authentication. In this section, we elaborate on how we develop for Apache Spark and how we deploy the Apache Spark application on the the SURFsara Hadoop 2.4.0 cluster.
+       </div>
+       <br/>
+       <div class="caption">
+           <h3>Development environment
+           </h3>
+           SBT 0.13 is used for building jars for Spark applications with the main language Scala 2.10.4 for Java 7, using the following libraries, org.apache.spark/spark-core_2.10/1.0.2, SURFsara/warcutils/2.1 and org.jwat/jwat-warc/1.0.1. (groupId/artifactId/version)
+       </div>
+       <br/>
+       <div class="caption">
+           <h3>Job submission environment [1/2]
+           </h3>
+           An environment for job submission is provided in the following GitHub repository: https://github.com/sara-nl/hathi-client . With this, it is possible to communicate with the Hadoop cluster.
+           <br/><br/>
+           Apache Spark 1.0.2 is used for the experiments, as of August 5th 2014, this is the latest version. Spark has an interface to submit jobs to YARN clusters. This interface is a bash script called “spark-submit”. Through it we specify
+           <br/><br/>
+           master -
+           This is the type of master, because we are deploying on a YARN cluster we set this parameter to “yarn-cluster”. It is also possible to set this parameter to “yarn-client”, this means that the master will be run on your local machine (which may not be ideal)<br/>
+           driver-memory -
+           This is the memory available to the master<br/>
+           executor-memory -
+           The memory available to a single worker<br/>
+           executor-cores -
+           The number of cores in a single worker<br/>
+           num-executors -
+           The total number of workers<br/>
+           class -
+           The class to be ran<br/>
+           jar -
+           The jar which contains the class<br/>
+           jar_args -
+           The optional arguments to the class
+
+       </div>
+
+
+       </div>
+
+</div>
+

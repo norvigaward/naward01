@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<script src="map/data1.js"></script>
+<script src="map/theme.js"></script>
+<script type="text/javascript">
+$(function () {
+
+        // Initiate the chart
+        $('#map-container').highcharts('Map', {
+
+            title : {
+                text : 'Number of web domains per country, March 2014'
+            },
+
+            mapNavigation: {
+                enabled: false,
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+
+            colorAxis: {
+            },
+
+            series : [{
+                data : data,
+		mapData: Highcharts.maps['custom/world'],
+                joinBy: ['iso-a2', 'code'],
+                name: 'web domains',
+                states: {
+                    hover: {
+                        color: '#BADA55'
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.properties.postal}'
+                }
+            }],
+
+		credits : {
+			enabled : false
+		},
+
+		exporting : {
+			enabled : false
+		},
+            mapNavigation: {
+                enabled: false,
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+
+        });
+
+});
+
+</script>
+
+
+<script type="text/css">
+.loading {
+	margin-top: 10em;
+	text-align: center;
+	color: gray;
+}
+</script>
+
+</head>
+
+<body>
+<div class="caption"><div class="chart-div" id="map-container" ></div>
+<center>
+The number of web domain in each country on a world map. 
+A large number of web domain cannot be displayed, as they do not contain country-code top level domain (ccTLD). <br>
+Fun fact: United States does have a ccTLD : ".us".
+[All = 249965073] 
+[Not ccTLD = 206833483] 
+[Displayed = 41912370] 
+[Not on worldmap scale = 1219220] 
+</center>
+
+</div>
+
+</body>
+</html>

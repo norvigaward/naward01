@@ -1,0 +1,28 @@
+<div id="setup" class="page-section">
+   <div class="container">
+      <h2>Methodology</h2>
+      <div class="caption">
+          In this section we will elaborate the choices made during the execution of the project.
+      </div>
+       <br/>
+       <div class="caption">
+          <h3>Choosing a large scale data processing platform</h3>
+          In the IN4144 data science course, we were recommended to use Hadoop MapReduce or Pig to produce MapReduce programs for experimenting with the proposed idea. To be able to execute this program on the available data set, access was given to the SURFsara Hadoop cluster. On the SURFsara website we found the following statement: “The software we run on the cluster is the Cloudera CDH3 distribution with Apache Hadoop 0.20.205.”, which would restrict us to Hadoop MapReduce programs. However, Apache Hadoop 2.4.0is deployed on the SURFsara cluster. The 2.x Apache Hadoop release is called YARN, which instead of running only MapReduce programs, will run any arbitrary program if one would write an ApplicationMaster for it. In the past year many data processing platforms have created deployment scripts for YARN.<br/><br/>
+          We set our eyes on Apache Spark, which uses Resilient Distributed Dataset as an immutable data abstraction. Unlike Hadoop MapReduce, the result is not read/written to HDFS with step, but instead to memory, better performance can be achieved. The promise is 10 - 100 times higher performance than Hadoop MapReduce.
+      </div>
+      <br>
+      <div class="caption">
+      	<h3>WARC format</h3>
+          For our idea, we need the HTTP response headers, these are only found in the WARC files. Spark has an interface for using Hadoop InputFormat. Thus the provided WarcInputFormat class from SURFsara warcutils is used to parse raw war.gz file.
+      </div>
+       <br>
+       <div class="caption">
+           <h3>Distributed computation</h3>
+           The Spark data distribution to workers is by default done by looking at the number of blocks a file is split in. For example, if a file is is 1024MB and the block size is 128MB, then 8 workers will be employed for computation. This partitioning can be manipulated by the programmer.
+       </div>
+
+
+       <br/><a href="#" class="scroll-top back-to-top">&uarr;</a>
+   </div>
+</div>
+

@@ -1,0 +1,31 @@
+<div id="discussion" class="page-section">
+    <div class="container">
+        <h2>Discussion</h2>
+        <div class="caption">
+            <h3>Partial execution of the original idea
+            </h3>
+            Initially the aim was to construct a timeline of web vulnerability, however it took much more time to deploy and tweak the settings of the Spark platform (to enable the jobs to not fail).
+            <h4>Too many tasks            </h4>
+            The master will not be able to cope with the administration of a lot of tasks, at some point the master will freeze and the job will fail. The solution to this is to manually adjust the task parallelism to a lower number.
+            <h4>Payload and communication failure
+
+            </h4>Spark uses the Akka framework for the communication, where arbitrarily sized payloads are sent over the network, however the framesize in which a payload must fit is static. We had to adjust this framesize manually to allow the jobs to finish.
+            <h4>Caching in a multi-user environment
+
+            </h4>One of Spark’s key points is that it can cache datasets for re-use in memory, however in a multi-user environment such as a shared Hadoop cluster. The memory bandwidth may be shared with other users, there’s also serialization and deserialization overhead. In our case caching was a hard hit on the performance, we decided to not use caching at all.
+            <h4>Out of memory exception
+
+            </h4>
+            Both the master and worker can run out of memory. A master managing a lot of small tasks may trigger the garbage collection which will freeze the master, once the master is too busy garbage collecting, the job will fail due to workers timing out.
+            The other way is also possible, the workers freeze due to heavy garbage collection, there’ll be a time-out and your job may or may not fail. To solve this, we had to increase the memory of the master and worker for our aggregation jobs.
+            <h3>Future work:
+                Constructing the timeline by sampling
+            </h3>
+            By using the unique domains, we can sample a subset of these domains to make HTTP requests to get a current view of the web. This same subset can be used to query the WaybackMachine using the Memento API.
+            Then by analyzing the results as described in the previous sections of this report we will be able to see the evolution of the vulnerabilit of the WWW governed by the moving market shares of different platforms.
+        </div>
+    </div>
+</div>
+
+
+
