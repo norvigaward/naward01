@@ -8,5 +8,5 @@ Go to the SPARK directory and type the following command
 
 To view the report:
 
-  - Web Version: doc/index.html or http://54.191.111.32/
+  - Web Version: doc/index.html or http://norvigaward.github.io/naward01/
   - PDF Version : ReportPDF/report.pdf
